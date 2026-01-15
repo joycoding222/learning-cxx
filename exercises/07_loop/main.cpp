@@ -5,9 +5,9 @@
 // READ: 纯函数 <https://zh.wikipedia.org/wiki/%E7%BA%AF%E5%87%BD%E6%95%B0>
 static unsigned long long fibonacci(int i) {
     // TODO: 为缓存设置正确的初始值
-    static unsigned long long cache[96], cached;
+    static unsigned long long cache[96]{0, 1}, cached = 2;  // cached初始化为待计算的位置，由于声明为static因此值初始化一次
     // TODO: 设置正确的循环条件
-    for (; false; ++cached) {
+    for (; cached <= i; ++cached) {
         cache[cached] = cache[cached - 1] + cache[cached - 2];
     }
     return cache[i];
@@ -26,3 +26,12 @@ int main(int argc, char **argv) {
     ASSERT(fib90 == 2880067194370816120, "fibonacci(90) should be 2880067194370816120");
     return 0;
 }
+
+/**
+ *  纯函数是指满足以下两个条件的函数：
+
+    确定性：对于相同的输入，总是返回相同的输出
+
+    无副作用：函数执行不会对外部状态产生任何可观察的影响
+ * 
+ */

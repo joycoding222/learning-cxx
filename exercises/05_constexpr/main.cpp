@@ -24,3 +24,7 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
+// 使用g++进行编译，无报错信息
+// 当 constexpr 修饰函数时，表示这个函数可以在编译期执行。
+// 当 constexpr 修饰变量或者成员时，表示这个变量或者成员一定在编译期求值。

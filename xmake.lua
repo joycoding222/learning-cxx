@@ -17,3 +17,4 @@ target("summary")
     set_kind("binary")
     add_deps("test")
     add_files("learn/summary.cpp")
+    add_syslinks("pthread") -- 方法1：添加系统链接库（推荐）
